@@ -144,3 +144,24 @@ BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.widevine_oemcrypto_level=3
 endif # ifeq ($(BOARD_HAS_SECURE_OS), true)
+
+#playready
+BOARD_USE_PLAYREADY := 1
+BOARD_PLAYREADY_USE_SECUREOS := 0
+PLAYREADY_DEBUG := 1
+BOARD_USE_PLAYREADY_LICENSE := 0
+
+ifeq ($(BOARD_USE_PLAYREADY), 1)
+PRODUCT_PACKAGES += \
+    libplayreadypk \
+    playreadydemo
+
+PRODUCT_COPY_FILES += \
+    hardware/aw/playready/keys/bgroupcert.dat:system/etc/playready/bgroupcert.dat \
+    hardware/aw/playready/keys/zgpriv_protected.dat:system/etc/playready/zgpriv_protected.dat
+endif
+
+ifeq ($(BOARD_PLAYREADY_USE_SECUREOS), 1)
+PRODUCT_COPY_FILES += \
+    device/softwinner/common/optee_ta/b713fbe8-bf5e-2442-83b8c78b53bed4c8.ta:$(TARGET_COPY_OUT_VENDOR)/lib/optee_armtz/b713fbe8-bf5e-2442-83b8c78b53bed4c8.ta
+endif

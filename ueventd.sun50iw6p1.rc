@@ -19,6 +19,7 @@
 /dev/gps                    0777    system      system
 /dev/pa_dev                 0777    system      system
 /dev/sunxi_mem              0666    media       media
+/dev/sunxi_soc_info         0660    media       mediadrm
 /dev/g2d                    0660    system      graphics
 /dev/fd_dev               0660    media       media
 /dev/sr0                    0777    system      system
