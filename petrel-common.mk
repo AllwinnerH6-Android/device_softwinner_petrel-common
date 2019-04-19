@@ -165,3 +165,6 @@ ifeq ($(BOARD_PLAYREADY_USE_SECUREOS), 1)
 PRODUCT_COPY_FILES += \
     device/softwinner/common/optee_ta/b713fbe8-bf5e-2442-83b8c78b53bed4c8.ta:$(TARGET_COPY_OUT_VENDOR)/lib/optee_armtz/b713fbe8-bf5e-2442-83b8c78b53bed4c8.ta
 endif
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.logd.RotateSizeKBytes=50000 \
+    persist.logd.logpersistd.size=4
